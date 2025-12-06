@@ -16,8 +16,8 @@ build:
     docker run -it --rm -v "$(pwd)":/usr/src/app -w /usr/src/app maven:3.9.11 mvn package
 
 # Runs the project
-run: build
-    docker run -it --rm -v "$(pwd)":/usr/src/app -w /usr/src/app maven:3.9.11 mvn exec:java -Dexec.mainClass="com.davante.app.App"
+run name="com.davante.app.App":
+    docker run -it --rm -v "$(pwd)":/usr/src/app -w /usr/src/app maven:3.9.11 mvn exec:java -Dexec.mainClass="{{name}}"
 
 # Tests the project with Maven
 test:
